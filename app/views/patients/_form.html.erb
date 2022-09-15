@@ -1,0 +1,47 @@
+<%= form_with(model: patient, class: 'pure-form pure-form-aligned', local: true) do |form| %>
+  <% if patient.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
+
+      <ul>
+      <% patient.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field pure-control-group">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name, id: :patient_first_name %>
+  </div>
+
+  <div class="field pure-control-group">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name, id: :patient_last_name %>
+  </div>
+
+  <div class="field pure-control-group">
+    <%= form.label :city %>
+    <%= form.text_field :city, id: :patient_city %>
+  </div>
+
+  <div class="field pure-control-group">
+    <%= form.label :username %>
+    <%= form.text_field :username, id: :patient_username %>
+  </div>
+
+  <div class="field pure-control-group">
+    <%= form.label :password %>
+    <%= form.text_field :password, id: :patient_password %>
+  </div>
+
+  <div class="field pure-control-group">
+    <%= form.label :address %>
+    <%= form.text_area :address, id: :patient_address %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'submit', :class => 'pure-button'%>
+  </div>
+<% end %>

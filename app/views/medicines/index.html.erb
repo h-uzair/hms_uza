@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1> Medicines </h1>
+
+<table class="pure-table pure-table-borderd">
+  <thead>
+    <tr class="<%= cycle('pure-table-odd', '') -%>">
+      <th>Name</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @medicines.each do |medicine| %>
+      <tr class="<%= cycle('pure-table-odd', '') -%>">
+        <td><%= medicine.name %></td>
+        <td><%= %></td>
+        <td><%= %></td>
+        <td><%= %></td>
+        <td><%= %></td>
+        <td><%= %></td>
+      </tr>
+    <% end %>
+
+

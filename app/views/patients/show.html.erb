@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @patient.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @patient.last_name %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @patient.city %>
+</p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @patient.username %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @patient.password %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @patient.address %>
+</p>
+
+<%= link_to 'Edit', edit_patient_path(@patient), class: 'pure-button  pure-button-primary'  %> |
+<%= link_to 'Back', patients_path, class: 'pure-button  button-secondary'  %>

@@ -1,0 +1,33 @@
+<%= form_with(model: medicine, class: 'pure-form pure-form-aligned', local: true) do |form| %>
+  <% if medicine.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(medicine.errors.count, "error") %> prohibited this medicine from being saved:</h2>
+
+      <ul>
+      <% medicine.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field pure-control-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :medicine_name %>
+  </div>
+
+  <div class="field pure-control-group">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :medicine_description %>
+  </div>
+
+  <div class="field pure-control-group">
+    <%= form.label :medicine_type %>
+    <%= form.text_field :medicine_type, id: :medicine_medicine_type %>
+  </div>
+  
+  <div class="actions">
+    <%= form.submit 'submit', :class => 'pure-button' %>
+  </div>
+<% end %>  
+
