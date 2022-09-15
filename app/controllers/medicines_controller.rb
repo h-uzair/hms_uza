@@ -20,7 +20,7 @@ class MedicinesController < ApplicationController
 
     respond_to do |format|
       if @medicine.save
-        format.html { redirect_to @medicine, notice 'Medicine was successfully created.'}
+        format.html { redirect_to @medicine, notice: 'Medicine was successfully created.'}
         format.json { render :show, status: :created, location: @medicine }
       else
         format.html { render :new }
