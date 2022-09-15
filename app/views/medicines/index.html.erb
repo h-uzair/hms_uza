@@ -17,7 +17,7 @@
       <tr class="<%= cycle('pure-table-odd', '') -%>">
         <td><%= medicine.name %></td>
         <td><%= medicine.description %></td>
-        <td><%= medicine.type %></td>
+        <td><%= medicine.medicine_type %></td>
         <td><%= link_to 'Show', medicine, class: 'pure-button pure-button-primary' %></td>
         <td><%= link_to 'Edit', edit_medicine_path(medicine), class: 'pure-button button-secondary' %></td>
         <td><%= link_to 'Destroy', medicine, method: :delete, data: { confirm: 'Are you sure?' }, class: 'pure-button button-warning' %></td>
