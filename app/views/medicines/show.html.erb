@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @medicine.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @medicine.description %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @medicine.medicine_type %>
+</p>
+
+  <%= link_to 'Edit', edit_medicine_path(@medicine), class: 'pure-button pure-button-primary' %> |
+  <%= link_to 'Back', medicines_path, class: 'pure-button button-secondary' %>

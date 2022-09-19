@@ -1,16 +1,3 @@
-class TurboFailureApp < Devise::FailureApp
-  def respond
-    if request_format == :turbo_stream
-      redirect
-    else
-      super
-    end
-  end
-
-  def skip_format?
-    %w(html turbo_stream */*).include? request_format.to_s
-  end
-end
 # frozen_string_literal: true
 
 # Assuming you have not yet modified this file, each configuration option below
@@ -19,6 +6,22 @@ end
 # breaking changes in upgrades (i.e., in the event that future versions of
 # Devise change the default values for those options).
 #
+class TurboFailureApp < Devise::FailureApp
+  def respond
+    if request_format == :turbo_stream
+      :redirect
+    else
+      super
+    end
+  end
+
+  def skip_format?
+    %w[html turbo_stream].include? request_format.to_s
+  end
+end
+
+
+
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
@@ -27,32 +30,17 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '085720add1b2077f4f5c407cbb0914d28d2b0f3b9ddad308aa37468a0ed86313e169b719263ef84af88f37a76298a4d1c182853708714eb34a18417867b94d0d'
+  # config.secret_key = 'caf86f1b6e2e601a160feb48225ed726f9aff7e915531ccd31fbb8904b3db56052b9d9a98d0e8e5034905ef5da7faa0302b3308deec80fcab8be443c80aabb82'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
- # ==> Controller configuration
-  # Configure the parent class to the devise controllers.
-  config.parent_controller = 'TurboDeviseController'
-  
-  # ...
 
-  # ==> Navigation configuration
-  # ...
+  config.parent_controller = "TurboDeviseController"
   config.navigational_formats = ['*/*', :html, :turbo_stream]
-
-  # ...
-
-  # ==> Warden configuration
-  # ...
   config.warden do |manager|
     manager.failure_app = TurboFailureApp
-  #   manager.intercept_401 = false
-  #   manager.default_strategies(scope: :user).unshift :some_external_strategy
   end
-  
-  # ...
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -160,7 +148,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '54bb199541cc3d35896084a1ef43155a0cecc53d66ad038d88af4d54b50c9680db72a6a0c16e228e68e92276f399de66ddf1726d7fdb43886399fa227abf0074'
+  # config.pepper = '5d77cfb0b3411eab56963687613d7e3e3e777d9773c4eaa1a30735934887cfee46c1915c9c30d0f697ace8657a83bc023e90094af6cf8138e666e13dae0a9636'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
