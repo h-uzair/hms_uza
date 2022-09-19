@@ -13,9 +13,9 @@
   <body>
   <div class="row">
       <div class="col-md-6">
-      <% unless current_page?(new_user_session_path) %>
-      <%= render "layouts/sidemenu" %>  
-      <% end %>
+        <% unless current_page?(new_user_session_path) %>
+        <%= render "layouts/sidemenu" %>  
+        <% end %>
       </div>
       <div class="col-md-6" style="margin-left: 150px;">
         <p class="notice text-1xl font-mono mx-10 my-10 text-blue-500 font-bold"><%= notice  %></p>

@@ -2,7 +2,7 @@
 
 <h1> Medicines </h1>
 
-<table class="pure-table pure-table-bordered" >
+<table class="pure-table pure-table-bordered">
   <thead>
     <tr class="<%= cycle('pure-table-odd', '') -%>">
       <th>Name</th>
@@ -25,9 +25,5 @@
     <% end %>
   </tbody>
 </table>
-
 <br>
-
 <%= link_to 'New Medicine', new_medicine_path, class: 'pure-button button-secondary' %>
-
-

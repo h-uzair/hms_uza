@@ -40,10 +40,7 @@ Devise.setup do |config|
   config.navigational_formats = ['*/*', :html, :turbo_stream]
   config.warden do |manager|
     manager.failure_app = TurboFailureApp
-  
   end
-
-
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
